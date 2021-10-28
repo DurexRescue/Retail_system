@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="drsqlDataSet17" targetNamespace="http://tempuri.org/drsqlDataSet17.xsd" xmlns:mstns="http://tempuri.org/drsqlDataSet17.xsd" xmlns="http://tempuri.org/drsqlDataSet17.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="drsqlConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="drsqlConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DataBase_Design.Properties.Settings.GlobalReference.Default.drsqlConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="on_stockTableAdapter" GeneratorDataComponentClassName="on_stockTableAdapter" Name="on_stock" UserDataComponentName="on_stockTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="drsqlConnectionString (Settings)" DbObjectName="drsql.on_stock" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `SKU`, `Product_description`, `Product_condition`, `Expected_Price` FROM `drsql`.`on_stock`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SKU" DataSetColumn="SKU" />
+              <Mapping SourceColumn="Product_description" DataSetColumn="Product_description" />
+              <Mapping SourceColumn="Product_condition" DataSetColumn="Product_condition" />
+              <Mapping SourceColumn="Expected_Price" DataSetColumn="Expected_Price" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="drsqlDataSet17" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="drsqlDataSet17" msprop:Generator_UserDSName="drsqlDataSet17">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="on_stock" msprop:Generator_TableClassName="on_stockDataTable" msprop:Generator_TableVarName="tableon_stock" msprop:Generator_TablePropName="on_stock" msprop:Generator_RowDeletingName="on_stockRowDeleting" msprop:Generator_RowChangingName="on_stockRowChanging" msprop:Generator_RowEvHandlerName="on_stockRowChangeEventHandler" msprop:Generator_RowDeletedName="on_stockRowDeleted" msprop:Generator_UserTableName="on_stock" msprop:Generator_RowChangedName="on_stockRowChanged" msprop:Generator_RowEvArgName="on_stockRowChangeEvent" msprop:Generator_RowClassName="on_stockRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SKU" msprop:Generator_ColumnVarNameInTable="columnSKU" msprop:Generator_ColumnPropNameInRow="SKU" msprop:Generator_ColumnPropNameInTable="SKUColumn" msprop:Generator_UserColumnName="SKU">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_description" msprop:Generator_ColumnVarNameInTable="columnProduct_description" msprop:Generator_ColumnPropNameInRow="Product_description" msprop:Generator_ColumnPropNameInTable="Product_descriptionColumn" msprop:Generator_UserColumnName="Product_description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_condition" msprop:Generator_ColumnVarNameInTable="columnProduct_condition" msprop:Generator_ColumnPropNameInRow="Product_condition" msprop:Generator_ColumnPropNameInTable="Product_conditionColumn" msprop:Generator_UserColumnName="Product_condition" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expected_Price" msprop:Generator_ColumnVarNameInTable="columnExpected_Price" msprop:Generator_ColumnPropNameInRow="Expected_Price" msprop:Generator_ColumnPropNameInTable="Expected_PriceColumn" msprop:Generator_UserColumnName="Expected_Price" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:on_stock" />
+      <xs:field xpath="mstns:SKU" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

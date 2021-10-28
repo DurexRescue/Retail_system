@@ -1,0 +1,491 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{838B188D-512E-4709-B3CA-50EBB1464B21}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DataBase_Design</RootNamespace>
+    <AssemblyName>DataBase_Design</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Excel, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Excel.1.0.0\lib\dotnet\Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.1.11\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.1.11\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.20.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.20\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.6.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.20\lib\net452\Ubiety.Dns.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.20\lib\net452\Zstandard.Net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="drsqlDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>drsqlDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="drsqlDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>drsqlDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="drsqlDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>drsqlDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="drsqlDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>drsqlDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="drsqlDataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>drsqlDataSet12.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="drsqlDataSet13.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>drsqlDataSet13.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="drsqlDataSet14.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>drsqlDataSet14.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="drsqlDataSet15.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>drsqlDataSet15.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="drsqlDataSet16.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>drsqlDataSet16.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="drsqlDataSet17.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>drsqlDataSet17.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="drsqlDataSet18.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>drsqlDataSet18.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="drsqlDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>drsqlDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="drsqlDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>drsqlDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="drsqlDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>drsqlDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="drsqlDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>drsqlDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="drsqlDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>drsqlDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="drsqlDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>drsqlDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="drsqlDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>drsqlDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="drsqlDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>drsqlDataSet9.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inquiry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inquiry.Designer.cs">
+      <DependentUpon>Inquiry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Put_In_Process.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Put_In_Process.Designer.cs">
+      <DependentUpon>Put_In_Process.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sell_Process.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sell_Process.Designer.cs">
+      <DependentUpon>Sell_Process.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views.Designer.cs">
+      <DependentUpon>Views.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inquiry.resx">
+      <DependentUpon>Inquiry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Put_In_Process.resx">
+      <DependentUpon>Put_In_Process.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sell_Process.resx">
+      <DependentUpon>Sell_Process.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views.resx">
+      <DependentUpon>Views.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="drsqlDataSet.xsc">
+      <DependentUpon>drsqlDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>drsqlDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="drsqlDataSet.xss">
+      <DependentUpon>drsqlDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet1.xsc">
+      <DependentUpon>drsqlDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>drsqlDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="drsqlDataSet1.xss">
+      <DependentUpon>drsqlDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet10.xsc">
+      <DependentUpon>drsqlDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>drsqlDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="drsqlDataSet10.xss">
+      <DependentUpon>drsqlDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet11.xsc">
+      <DependentUpon>drsqlDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>drsqlDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="drsqlDataSet11.xss">
+      <DependentUpon>drsqlDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet12.xsc">
+      <DependentUpon>drsqlDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>drsqlDataSet12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="drsqlDataSet12.xss">
+      <DependentUpon>drsqlDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet13.xsc">
+      <DependentUpon>drsqlDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet13.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>drsqlDataSet13.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="drsqlDataSet13.xss">
+      <DependentUpon>drsqlDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet14.xsc">
+      <DependentUpon>drsqlDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet14.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>drsqlDataSet14.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="drsqlDataSet14.xss">
+      <DependentUpon>drsqlDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet15.xsc">
+      <DependentUpon>drsqlDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet15.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>drsqlDataSet15.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="drsqlDataSet15.xss">
+      <DependentUpon>drsqlDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet16.xsc">
+      <DependentUpon>drsqlDataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet16.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>drsqlDataSet16.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="drsqlDataSet16.xss">
+      <DependentUpon>drsqlDataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet17.xsc">
+      <DependentUpon>drsqlDataSet17.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet17.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>drsqlDataSet17.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="drsqlDataSet17.xss">
+      <DependentUpon>drsqlDataSet17.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet18.xsc">
+      <DependentUpon>drsqlDataSet18.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet18.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>drsqlDataSet18.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="drsqlDataSet18.xss">
+      <DependentUpon>drsqlDataSet18.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet2.xsc">
+      <DependentUpon>drsqlDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>drsqlDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="drsqlDataSet2.xss">
+      <DependentUpon>drsqlDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet3.xsc">
+      <DependentUpon>drsqlDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>drsqlDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="drsqlDataSet3.xss">
+      <DependentUpon>drsqlDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet4.xsc">
+      <DependentUpon>drsqlDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>drsqlDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="drsqlDataSet4.xss">
+      <DependentUpon>drsqlDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet5.xsc">
+      <DependentUpon>drsqlDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>drsqlDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="drsqlDataSet5.xss">
+      <DependentUpon>drsqlDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet6.xsc">
+      <DependentUpon>drsqlDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>drsqlDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="drsqlDataSet6.xss">
+      <DependentUpon>drsqlDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet7.xsc">
+      <DependentUpon>drsqlDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>drsqlDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="drsqlDataSet7.xss">
+      <DependentUpon>drsqlDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet8.xsc">
+      <DependentUpon>drsqlDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>drsqlDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="drsqlDataSet8.xss">
+      <DependentUpon>drsqlDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet9.xsc">
+      <DependentUpon>drsqlDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="drsqlDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>drsqlDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="drsqlDataSet9.xss">
+      <DependentUpon>drsqlDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
